@@ -5,10 +5,12 @@ function registerValidate(value) {
     var newLoginInput = $("#newLoginInput").val();
     var newPassInput = $("#newPassInput").val();
     var repeatPassInput = $("#repeatPassInput").val();
+    var licence = $("#licence").val();
 
     var regLetter = /^[A-ZĄĆĘŁŃÓŚŻŹ]{1}[a-ząćęłńóśżź]{1,50}$/;
     var regLog = /^\w{1,50}$/;
     var regPhone = /^\d{3}-\d{3}-\d{3}$/;
+    var regLicence = /^[A-Z0-9]{1,50}$/;
 
     switch (value) {
         case 1:
@@ -49,11 +51,20 @@ function registerValidate(value) {
             break;
         case 5:
             // powtorzone haslo
-            if(repeatPassInput===newPassInput){
+            if (repeatPassInput === newPassInput) {
                 $("#divRepeatPass").css("visibility", "hidden").css("height", "0px").css("margin", "0px").css("padding", "0px");
             }
             else {
                 $("#divRepeatPass").css("visibility", "visible").css("height", "30px").css("margin", "3px").css("padding", "5px");
+            }
+            break;
+        case 6:
+            // licencja
+            if (licence.match(regLicence)) {
+                $("#divLicence").css("visibility", "hidden").css("height", "0px").css("margin", "0px").css("padding", "0px");
+            }
+            else {
+                $("#divLicence").css("visibility", "visible").css("height", "30px").css("margin", "3px").css("padding", "5px");
             }
             break;
     }
@@ -139,7 +150,7 @@ function horseValidate(value) {
     }
 }
 
-function competitionValidate(value){
+function competitionValidate(value) {
     var dateStart = $("#dateStart").val();
     var dateEnd = $("#dateEnd").val();
     var managerTrack = $("#managerTrack").val();
@@ -156,7 +167,7 @@ function competitionValidate(value){
     switch (value) {
         case 1:
             // data
-            if (dateEnd<dateStart) {
+            if (dateEnd < dateStart) {
                 $("#divDate").css("visibility", "visible").css("height", "30px").css("margin", "3px").css("padding", "5px");
             }
             else {
@@ -273,7 +284,7 @@ function organizerValidate(value) {
             break;
         case 5:
             // kierownik
-            if(manager.match(regLetter)){
+            if (manager.match(regLetter)) {
                 $("#divManager").css("visibility", "hidden").css("height", "0px").css("margin", "0px").css("padding", "0px");
             }
             else {
@@ -282,7 +293,7 @@ function organizerValidate(value) {
             break;
         case 6:
             // klub sportowy
-            if(sportClub.match(regClub)){
+            if (sportClub.match(regClub)) {
                 $("#divSportClub").css("visibility", "hidden").css("height", "0px").css("margin", "0px").css("padding", "0px");
             }
             else {
@@ -291,7 +302,7 @@ function organizerValidate(value) {
             break;
         case 7:
             // telefon
-            if(phone.match(regPhone)){
+            if (phone.match(regPhone)) {
                 $("#divPhone").css("visibility", "hidden").css("height", "0px").css("margin", "0px").css("padding", "0px");
             }
             else {

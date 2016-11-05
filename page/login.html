@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../app/app.js"></script>
     <script type="text/javascript" src="../lib/bootstrap.js"></script>
-    <script type="text/javascript" src="../lib/less.min.js"></script>
+
     <script type="text/javascript">
         $(function () {
             $("#log")[0].reset();
@@ -128,6 +128,17 @@
                                    placeholder="XXX-XXX-XXX" required>
                             <div class="alert alert-danger" id="divPhone" style="visibility: hidden">Niepoprawny format
                                 telefonu
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="licence">Numer licencji PZJ</label>
+                            <abbr title="Numer licencji może składać się z dużych liter (bez polskich znaków) oraz z cyfr"><i
+                                    class="fa fa-question-circle fa-lg" aria-hidden="true"></i></abbr>
+                            <input type="text" onblur="return registerValidate(6);" class="form-control" id="licence"
+                                   placeholder="Wpisz numer licencji" required>
+                            <div class="alert alert-danger" id="divLicence" style="visibility: hidden">Niepoprawny
+                                format
+                                licencji
                             </div>
                         </div>
                         <div class="form-group">
